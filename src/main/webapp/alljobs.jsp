@@ -2,43 +2,58 @@
 <%@page import="com.oasis.JobApp.model.JobPost" %>
 <%@page import="java.util.List" %>
 <html>
+    <head>
+        <title>Job App - All Jobs</title>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    </head>
     <body>
         <nav>
             <a href="home">Home</a>
             <a href="alljobs">All Jobs</a>
             <a href="contact">Contact Us</a>
         </nav>
-        <h2>All Jobs</h2>
-        <%
-            List<JobPost> jobs = (List<JobPost>) request.getAttribute("jobs");
-            if (jobs != null && !jobs.isEmpty()) {
-                for (JobPost job : jobs) {
-        %>
-                    <p><strong>Job Id:</strong> <%= job.getPostId() %></p>
-                    <p><strong>Job Title:</strong> <%= job.getPostProfile() %></p>
-                    <p><strong>Job Description:</strong> <%= job.getPostDescription() %></p>
-                    <p><strong>Required Experience:</strong> <%= job.getReqExperience() %> years</p>
-                    <p><strong>Tech Stacks:</strong>
-                        <%
-                            List<String> techStacks = job.getPostTechStack();
-                            if (techStacks != null && !techStacks.isEmpty()) {
-                                for (int i = 0; i < techStacks.size(); i++) {
-                                    out.print(techStacks.get(i));
-                                    if (i < techStacks.size() - 1) {
-                                        out.print(", ");
+
+        <div class="container">
+            <h2>All Jobs</h2>
+            <%
+                List<JobPost> jobs = (List<JobPost>) request.getAttribute("jobs");
+                if (jobs != null && !jobs.isEmpty()) {
+            %>
+                <div class="jobs-grid">
+                    <%
+                        for (JobPost job : jobs) {
+                    %>
+                        <div class="job-card">
+                            <h3><%= job.getPostProfile() %></h3>
+                            <p><strong>Job Id:</strong> <%= job.getPostId() %></p>
+                            <p><strong>Description:</strong> <%= job.getPostDescription() %></p>
+                            <p><strong>Experience Required:</strong> <%= job.getReqExperience() %> years</p>
+                            <p><strong>Tech Stack:</strong></p>
+                            <%
+                                List<String> techStacks = job.getPostTechStack();
+                                if (techStacks != null && !techStacks.isEmpty()) {
+                                    for (String tech : techStacks) {
+                            %>
+                                <span class="tech-stack"><%= tech %></span>
+                            <%
                                     }
                                 }
-                            }
-                        %>
-                    </p>
-                    <hr>
-        <%
+                            %>
+                        </div>
+                    <%
+                        }
+                    %>
+                </div>
+            <%
+                } else {
+            %>
+                <div class="no-jobs">
+                    <h3>No Jobs Available</h3>
+                    <p>Check back later for new job opportunities!</p>
+                </div>
+            <%
                 }
-            } else {
-        %>
-                <p>No jobs available.</p>
-        <%
-            }
-        %>
+            %>
+        </div>
     </body>
 </html>
