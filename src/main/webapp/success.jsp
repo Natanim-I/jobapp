@@ -14,7 +14,6 @@
 
         <div class="container">
             <div class="success-header">
-                <div class="success-icon">✅</div>
                 <h2>Job Posted Successfully!</h2>
                 <p class="success-message">Your job posting has been submitted and is now live.</p>
             </div>
