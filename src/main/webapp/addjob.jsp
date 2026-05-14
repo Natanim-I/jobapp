@@ -8,10 +8,22 @@
         </nav>
         <h2>Please Submit Job Description</h2>
         <form action="handleForm" method="post">
-            <label for="title">Job Title:</label><br>
-            <input type="text" id="title" name="title"><br>
-            <label for="description">Job Description:</label><br>
-            <textarea id="description" name="description"></textarea><br>
+            <label for="postId">Job Id</label>
+            <input type="text" id="postId" name="postId" required><br><br>
+            <label for="postProfile">Job Title</label>
+            <input type="text" id="postProfile" name="postProfile" required><br><br>
+            <label for="postDescription">Job Description</label>
+            <textarea id="postDescription" name="postDescription" required></textarea><br><br>
+            <label for="reqExperience">Required Experience</label>
+            <input type="number" id="reqExperience" name="reqExperience" required><br><br>
+            <label for="postTechStack">Select Tech Stacks</label>
+            <Select id="postTechStack" name="postTechStack" multiple required>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C#">C#</option>
+                <option value="Ruby">Ruby</option>
+
             <input type="submit" value="Submit">
         </form>
     </body>

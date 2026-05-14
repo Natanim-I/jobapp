@@ -1,26 +1,28 @@
 package com.oasis.JobApp.controller;
 
+import com.oasis.JobApp.model.JobPost;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class JobController {
-    @RequestMapping({"/", "home"})
+    @GetMapping({"/", "home"})
     public String home(){
         return "home.jsp";
     }
 
-    @RequestMapping("addjob")
+    @GetMapping("addjob")
     public String addJob(){
         return "addjob.jsp";
     }
 
-    @RequestMapping("handleForm")
-    public String handleForm(){
+    @PostMapping("handleForm")
+    public String handleForm(JobPost jobPost){
         return "success.jsp";
     }
 
-    @RequestMapping("contact")
+    @GetMapping("contact")
     public String contact(){
         return "contact.jsp";
     }
