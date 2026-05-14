@@ -14,4 +14,14 @@ public class JobController {
     public String addJob(){
         return "addjob.jsp";
     }
+
+    @RequestMapping("handleForm")
+    public String handleForm(){
+        return "success.jsp";
+    }
+
+    @RequestMapping("contact")
+    public String contact(){
+        return "contact.jsp";
+    }
 }

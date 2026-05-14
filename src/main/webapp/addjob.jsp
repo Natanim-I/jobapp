@@ -7,7 +7,7 @@
             <a href="contact">Contact Us</a>
         </nav>
         <h2>Please Submit Job Description</h2>
-        <form action="addjob" method="post">
+        <form action="handleForm" method="post">
             <label for="title">Job Title:</label><br>
             <input type="text" id="title" name="title"><br>
             <label for="description">Job Description:</label><br>
