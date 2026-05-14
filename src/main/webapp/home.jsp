@@ -7,5 +7,6 @@
             <a href="contact">Contact Us</a>
         </nav>
         <h2>Welcome to our Job App</h2>
+        <a href="addjob">Add a Job Post</a>
     </body>
 </html>
